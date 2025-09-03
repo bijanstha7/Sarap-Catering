@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SARAP Catering Design System - Warm, professional catering palette 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 46 20% 97%;
+    --foreground: 24 12% 15%;
+
+    /* Card system */
+    --card: 46 25% 98%;
+    --card-foreground: 24 12% 15%;
+
+    /* Popover */
+    --popover: 46 25% 98%;
+    --popover-foreground: 24 12% 15%;
+
+    /* Brand colors - warm catering palette */
+    --primary: 355 45% 35%;        /* Rich burgundy */
+    --primary-foreground: 46 20% 97%;
+    --primary-accent: 355 65% 55%;  /* Lighter burgundy */
+
+    /* Secondary - golden amber */
+    --secondary: 42 85% 65%;
+    --secondary-foreground: 24 35% 20%;
+    --secondary-glow: 42 90% 75%;
+
+    /* Sage accent */
+    --accent: 110 25% 55%;
+    --accent-foreground: 46 20% 97%;
+    --accent-light: 110 35% 75%;
+
+    /* Neutral system */
+    --muted: 46 15% 92%;
+    --muted-foreground: 24 8% 45%;
+
+    /* Utility colors */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 46 20% 97%;
+
+    --border: 46 15% 85%;
+    --input: 46 15% 90%;
+    --ring: 355 45% 35%;
+
+    /* Custom design tokens */
+    --hero-overlay: 24 25% 8% / 0.4;
+    --gradient-primary: linear-gradient(135deg, hsl(355 45% 35%), hsl(355 65% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(42 85% 65%), hsl(42 90% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(24 25% 8% / 0.7), hsl(355 25% 15% / 0.5));
+    
+    --shadow-elegant: 0 10px 30px -10px hsl(355 45% 35% / 0.2);
+    --shadow-warm: 0 4px 20px -2px hsl(42 85% 65% / 0.15);
+    --shadow-soft: 0 2px 8px -1px hsl(24 12% 15% / 0.1);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - sophisticated catering theme */
+    --background: 24 15% 8%;
+    --foreground: 46 15% 92%;
+
+    --card: 24 20% 10%;
+    --card-foreground: 46 15% 92%;
+
+    --popover: 24 20% 10%;
+    --popover-foreground: 46 15% 92%;
+
+    --primary: 355 55% 65%;        /* Brighter burgundy for dark */
+    --primary-foreground: 24 15% 8%;
+    --primary-accent: 355 75% 75%;
+
+    --secondary: 42 75% 55%;       /* Warmer gold for dark */
+    --secondary-foreground: 24 15% 8%;
+    --secondary-glow: 42 85% 65%;
+
+    --accent: 110 35% 65%;
+    --accent-foreground: 24 15% 8%;
+    --accent-light: 110 45% 75%;
+
+    --muted: 24 12% 15%;
+    --muted-foreground: 46 8% 65%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 46 15% 92%;
+
+    --border: 24 12% 20%;
+    --input: 24 12% 18%;
+    --ring: 355 55% 65%;
+
+    /* Dark mode gradients */
+    --hero-overlay: 24 35% 5% / 0.6;
+    --gradient-primary: linear-gradient(135deg, hsl(355 55% 65%), hsl(355 75% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(42 75% 55%), hsl(42 85% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(24 35% 5% / 0.8), hsl(355 35% 10% / 0.6));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* Hero text styles */
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-primary-accent bg-clip-text text-transparent leading-tight;
+  }
+  
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-muted-foreground/90 leading-relaxed;
+  }
+
+  /* Service card hover effects */
+  .service-card {
+    @apply bg-card border border-border/60 rounded-xl p-6 transition-all duration-300 hover:shadow-warm hover:border-primary/30 hover:-translate-y-1;
+  }
+
+  /* Floating CTA button */
+  .floating-cta {
+    @apply fixed bottom-6 right-6 z-50 bg-gradient-to-r from-primary to-primary-accent text-primary-foreground px-6 py-3 rounded-full shadow-elegant hover:shadow-xl transition-all duration-300 hover:-translate-y-1 font-semibold;
+  }
+
+  /* Navigation styles */
+  .nav-sticky {
+    @apply sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border/60;
+  }
+
+  /* Button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-accent text-primary-foreground px-8 py-4 rounded-lg font-semibold shadow-elegant hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-medium shadow-warm hover:bg-secondary-glow transition-all duration-300;
+  }
+
+  /* Image overlays */
+  .image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent;
+  }
+
+  /* Animation classes */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
